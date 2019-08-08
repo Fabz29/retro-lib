@@ -1,1 +1,22 @@
-<p>header works!</p>
+<mat-toolbar color="primary">
+  <a mat-button routerLink="games">
+    <mat-icon aria-hidden="false" aria-label="gamepad icon">gamepad</mat-icon> Retro Lib
+  </a>
+  <span class="spacer"></span>
+  <span *ngIf="isAuth">Connecté</span>
+  <button mat-icon-button [matMenuTriggerFor]="menu_account">
+    <mat-icon aria-hidden="false" aria-label="account_circle icon">account_circle</mat-icon>
+    <mat-icon aria-hidden="false" aria-label="arrow-drop-down">arrow_drop_down</mat-icon>
+  </button>
+  <mat-menu #menu_account="matMenu">
+    <a mat-menu-item routerLink="auth/signin" *ngIf="!isAuth">
+      Sign in
+    </a>
+    <a mat-menu-item routerLink="auth/signup" *ngIf="!isAuth">
+      Sign up
+    </a>
+    <a mat-menu-item (click)="onSignOut()" *ngIf="isAuth">
+      Sign out
+    </a>
+  </mat-menu>
+</mat-toolbar>
