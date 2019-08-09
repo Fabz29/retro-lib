@@ -14,6 +14,7 @@ export class GameFormComponent implements OnInit {
 
   gameForm: FormGroup;
   fileUrl: string;
+  fileName: string;
 
   constructor(private formBuilder: FormBuilder, private gameService: GamesService, private router: Router, private snackBar: MatSnackBar) {
   }
@@ -57,6 +58,8 @@ export class GameFormComponent implements OnInit {
   }
 
   detectFiles(event) {
-    this.onUploadFile(event.target.files[0]);
+    const file = event.target.files[0];
+    this.fileName = file.name;
+    this.onUploadFile(file);
   }
 }

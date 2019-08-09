@@ -1,18 +1,26 @@
 <mat-card>
-  <form (ngSubmit)="onSubmitForm()" [formGroup]="gameForm" class="form-container">
-    <mat-card-title>
-      <span>New Game</span>
-    </mat-card-title>
-    <mat-form-field>
-      <input matInput placeholder="Title" formControlName="title">
-    </mat-form-field>
-    <mat-form-field>
-      <input matInput placeholder="Console" formControlName="console">
-    </mat-form-field>
-    <mat-form-field>
-      <textarea matInput placeholder="Description" formControlName="description"></textarea>
-    </mat-form-field>
-      <input (change)="detectFiles($event)" type="file" placeholder="Photo" formControlName="photo">
+  <form (ngSubmit)="onSubmitForm()" [formGroup]="gameForm">
+    <div class="form-container">
+      <mat-card-title>
+        <span>New Game</span>
+      </mat-card-title>
+      <mat-form-field>
+        <input matInput placeholder="Title" formControlName="title">
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="Console" formControlName="console">
+      </mat-form-field>
+      <mat-form-field>
+        <textarea matInput placeholder="Description" formControlName="description"></textarea>
+      </mat-form-field>
+      <button *ngIf="!fileName" type="button" mat-button (click)="imgFileInput.click()">Add a photo</button>
+      <p *ngIf="fileName">
+        {{fileName}}
+        <button mat-button color="warn"><mat-icon>delete</mat-icon></button>
+      </p>
+      <input hidden formControlName="photo" type="file" #imgFileInput (change)="detectFiles($event)"/>
+
+    </div>
     <button type="submit" mat-raised-button color="primary">Create</button>
   </form>
 </mat-card>
