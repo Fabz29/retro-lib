@@ -28,9 +28,11 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 const appRoutes: Routes = [
   {path: 'auth/signup', component: SignupComponent},
   {path: 'auth/signin', component: SigninComponent},
-  {path: 'games', component: GameListComponent},
-  {path: 'games/new', component: GameFormComponent},
-  {path: 'games/view/:id', component: SingleGameComponent},
+  {path: 'games', canActivate: [AuthGuardService], component: GameListComponent},
+  {path: 'games/new', canActivate: [AuthGuardService], component: GameFormComponent},
+  {path: 'games/view/:id', canActivate: [AuthGuardService], component: SingleGameComponent},
+  { path: '', redirectTo: 'games', pathMatch: 'full' },
+  { path: '**', redirectTo: 'games' }
 ];
 
 @NgModule({
