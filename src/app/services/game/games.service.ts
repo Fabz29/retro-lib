@@ -62,4 +62,24 @@ export class GamesService {
     this.emitGames();
   }
 
+  uploadFile(file: File) {
+    return new Promise(
+      (resolve, reject) => {
+        const almostUniqueFileName = Math.random().toString(36).substr(2, 9);
+        const upload = firebase.storage().ref().child('images/' + almostUniqueFileName + file.name).put(file);
+        upload.on(firebase.storage.TaskEvent.STATE_CHANGED,
+          () => {
+            console.log('Uploading...');
+          },
+          (error) => {
+            console.error('Error occured when uploading file : ' + error);
+            reject(error);
+          },
+          () => {
+            resolve(upload.snapshot.ref.getDownloadURL());
+          }
+        );
+      }
+    );
+  }
 }

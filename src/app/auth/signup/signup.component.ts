@@ -12,6 +12,7 @@ import {Router} from '@angular/router';
 export class SignupComponent implements OnInit {
 
   signUpForm: FormGroup;
+  hide = true;
 
   constructor(private formBuilder: FormBuilder, private authService: AuthService, private snackBar: MatSnackBar, private router: Router) {
   }
@@ -32,8 +33,7 @@ export class SignupComponent implements OnInit {
     const password = this.signUpForm.get('password').value;
     this.authService.createNewAuth(email, password).then(
       () => {
-        this.snackBar.open('Auth created', 'success', {panelClass: 'success'});
-        console.log();
+        this.snackBar.open('Auth created', 'close', {panelClass: 'success'});
         setTimeout(
           () => {
             this.router.navigate(['/games']);

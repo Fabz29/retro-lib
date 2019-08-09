@@ -12,6 +12,7 @@ import {MatSnackBar} from '@angular/material';
 export class SigninComponent implements OnInit {
 
   signInForm: FormGroup;
+  hide = true;
 
   constructor(private formBuilder: FormBuilder, private authService: AuthService, private router: Router, private snackBar: MatSnackBar) {
   }

@@ -13,7 +13,7 @@ export class AppComponent {
       authDomain: 'retro-lib.firebaseapp.com',
       databaseURL: 'https://retro-lib.firebaseio.com',
       projectId: 'retro-lib',
-      storageBucket: '',
+      storageBucket: 'gs://retro-lib.appspot.com/',
       messagingSenderId: '266290166497',
       appId: '1:266290166497:web:23e13c36a5cf31f6'
     };

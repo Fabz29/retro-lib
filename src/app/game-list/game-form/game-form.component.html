@@ -10,9 +10,9 @@
       <input matInput placeholder="Console" formControlName="console">
     </mat-form-field>
     <mat-form-field>
-
       <textarea matInput placeholder="Description" formControlName="description"></textarea>
     </mat-form-field>
+      <input (change)="detectFiles($event)" type="file" placeholder="Photo" formControlName="photo">
     <button type="submit" mat-raised-button color="primary">Create</button>
   </form>
 </mat-card>
