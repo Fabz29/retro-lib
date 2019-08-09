@@ -11,7 +11,7 @@ import {
   MatMenuModule,
   MatButtonModule,
   MatFormFieldModule,
-  MatInputModule, MatSelectModule
+  MatInputModule, MatSelectModule, MatTableModule, MatPaginatorModule, MatRadioModule, MatGridListModule, MatDividerModule
 } from '@angular/material';
 import {SigninComponent} from './auth/signin/signin.component';
 import {SignupComponent} from './auth/signup/signup.component';
@@ -30,9 +30,9 @@ const appRoutes: Routes = [
   {path: 'auth/signin', component: SigninComponent},
   {path: 'games', canActivate: [AuthGuardService], component: GameListComponent},
   {path: 'games/new', canActivate: [AuthGuardService], component: GameFormComponent},
-  {path: 'games/view/:id', canActivate: [AuthGuardService], component: SingleGameComponent},
-  { path: '', redirectTo: 'games', pathMatch: 'full' },
-  { path: '**', redirectTo: 'games' }
+  {path: 'games/show/:id', canActivate: [AuthGuardService], component: SingleGameComponent},
+  {path: '', redirectTo: 'games', pathMatch: 'full'},
+  {path: '**', redirectTo: 'games'}
 ];
 
 @NgModule({
@@ -61,6 +61,11 @@ const appRoutes: Routes = [
     FormsModule,
     ReactiveFormsModule,
     MatSnackBarModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatRadioModule,
+    MatGridListModule,
+    MatDividerModule,
   ],
   providers: [
     AuthService,

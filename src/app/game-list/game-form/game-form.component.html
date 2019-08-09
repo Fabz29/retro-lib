@@ -1,1 +1,19 @@
-<p>game-form works!</p>
+<mat-card>
+  <form (ngSubmit)="onSubmitForm()" [formGroup]="gameForm" class="form-container">
+    <mat-card-title>
+      <span>New Game</span>
+    </mat-card-title>
+    <mat-form-field>
+      <input matInput placeholder="Title" formControlName="title">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Console" formControlName="console">
+    </mat-form-field>
+    <mat-form-field>
+
+      <textarea matInput placeholder="Description" formControlName="description"></textarea>
+    </mat-form-field>
+    <button type="submit" mat-raised-button color="primary">Create</button>
+  </form>
+</mat-card>
+

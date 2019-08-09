@@ -35,14 +35,15 @@ html {
 
 section.container {
   align-items: center;
-  display: flex;
-  flex-direction: column;
   padding: 16px;
+  justify-content: center;
+  display: flex;
 }
 
 .form-container {
   display: flex;
   flex-direction: column;
+  min-width: 480px;
 }
 
 .form-container > * {
@@ -57,4 +58,12 @@ section.container {
 .success {
   background-color:map-get($mat-green, 500);
   color: $light-primary-text;
+}
+
+table {
+  width: 100%;
+}
+
+button{
+  text-transform: uppercase;
 }
